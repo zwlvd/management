@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org"
+	  xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>员工管理系统</title>
+		<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+		<link th:href="@{/css/dashboard.css}" rel="stylesheet">
+		<style type="text/css">
+			h1{
+				font-family: 楷体;
+				font-size: 100px;
+				text-align: center;
+				line-height: 500px;
+				color: #408ad9;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div th:insert="~{commons/commons::navbar}"></div>
+		<div class="container-fluid">
+			<div class="row">
+				<div th:insert="~{commons/commons::sidebar}"></div>
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+					<h1>欢迎使用员工管理系统</h1>
+				</main>
+			</div>
+		</div>
+	</body>
+</html>

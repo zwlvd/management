@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" th:href="@{/icon/iconfont.css}">
+</head>
+<body>
+
+
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0" th:fragment="navbar">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/main.html}">欢迎您,[[${session.employee.name}]]---职务:[[${session.employee.roles.name}]]</a>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" th:href="@{/logout}">退出登录</a>
+    </li>
+  </ul>
+</nav>
+
+
+<nav class="col-md-2 d-none d-md-block bg-light sidebar" th:fragment="sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" th:href="@{/main.html}">
+          首页
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{#}">
+          后续功能
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{#}">
+          敬请期待
+        </a>
+      </li>
+      <li class="nav-item" shiro:hasPermission="'dep:list'">
+        <a class="nav-link" th:href="@{/dep/list}">
+          部门管理
+        </a>
+      </li>
+      <li class="nav-item" shiro:hasPermission="'emp:list'">
+        <a class="nav-link" th:href="@{/emp/list}">
+          员工管理
+        </a>
+      </li>
+      <li class="nav-item" shiro:hasPermission="'role:list'">
+        <a class="nav-link" th:href="@{/role/list}">
+          角色管理
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{#}">
+          未完待续
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{#}">
+          xxxxx
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</body>
+</html>

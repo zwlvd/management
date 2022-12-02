@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>添加员工</title>
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+</head>
+
+<body>
+<!--引入公共顶部栏-->
+<div th:insert="~{commons/commons::navbar}"></div>
+<div class="container-fluid">
+  <div class="row">
+    <!--引入公共侧边栏-->
+    <div th:insert="~{commons/commons::sidebar}"></div>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      <form th:action="@{/emp/add}" method="post">
+        <div class="form-group">
+          <label>姓名</label>
+          <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>密码</label>
+          <input type="password" name="password" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>年龄</label>
+          <input type="text" name="age" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>性别</label><br/>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sex" value="1" required>
+            <label class="form-check-label">男</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sex" value="0" required>
+            <label class="form-check-label">女</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>联系方式</label>
+          <input type="text" name="phone" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>生日</label>
+          <!--注意此处的日期格式  SpringBoot默认格式为 1778/12/12 12:12:12 可以在配置文件修改-->
+          <input type="text" class="form-control" placeholder="例如:1778-12-12" name="birth" required>
+        </div>
+        <div class="form-group">
+          <label>部门</label>
+          <select class="form-control" name="departid" required>
+            <option th:each="department:${departList}" th:value="${department.id}">[[${department.name}]]</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>角色</label>
+          <select class="form-control" name="role" required>
+            <option th:each="roles:${rolesList}" th:value="${roles.id}">[[${roles.name}]]</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">添加</button>
+      </form>
+    </main>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>添加角色</title>
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+</head>
+
+<body>
+<!--引入公共顶部栏-->
+<div th:insert="~{commons/commons::navbar}"></div>
+<div class="container-fluid">
+  <div class="row">
+    <!--引入公共侧边栏-->
+    <div th:insert="~{commons/commons::sidebar}"></div>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      <form th:action="@{/role/add}" method="post">
+        <div class="form-group">
+          <label>角色名称</label>
+          <input type="text" name="name" class="form-control" placeholder="不填写会使用默认的...">
+        </div>
+        <div class="form-group">
+          <label>角色权限:</label>
+          <br/>
+          <br/>
+          <label>员工操作权限:</label>
+          <input type="checkbox" name="perms" value="emp:*">操作员工的所有权限--
+          <input type="checkbox" name="perms" value="emp:list">查看员工列表--
+          <input type="checkbox" name="perms" value="emp:toAdd">跳转添加员工--
+          <input type="checkbox" name="perms" value="emp:add">添加员工--
+          <input type="checkbox" name="perms" value="emp:toUpdate">跳转修改员工--
+          <input type="checkbox" name="perms" value="emp:update">修改员工--
+          <input type="checkbox" name="perms" value="emp:delete">删除员工--
+          <input type="checkbox" name="perms" value="emp:get">查询员工--
+          <br/>
+          <br/>
+          <br/>
+          <label>部门操作权限:</label>
+          <input type="checkbox" name="perms" value="dep:*">操作部门的所有权限--
+          <input type="checkbox" name="perms" value="dep:list">查看部门列表--
+          <input type="checkbox" name="perms" value="dep:toAdd">跳转添加部门--
+          <input type="checkbox" name="perms" value="dep:add">添加部门--
+          <input type="checkbox" name="perms" value="dep:toUpdate">跳转修改部门--
+          <input type="checkbox" name="perms" value="dep:update">修改部门--
+          <input type="checkbox" name="perms" value="dep:delete">删除部门--
+          <br/>
+          <br/>
+          <br/>
+          <label>角色操作权限:</label>
+          <input type="checkbox" name="perms" value="role:*"/>操作角色的所有权限--
+          <input type="checkbox" name="perms" value="role:list"/>查看角色列表--
+          <input type="checkbox" name="perms" value="role:toAdd"/>跳转添加角色--
+          <input type="checkbox" name="perms" value="role:add"/>添加角色--
+          <input type="checkbox" name="perms" value="role:toUpdate"/>跳转修改角色--
+          <input type="checkbox" name="perms" value="role:update"/>修改角色--
+          <input type="checkbox" name="perms" value="role:delete"/>删除角色--
+        </div>
+        <button type="submit" class="btn btn-primary">添加</button>
+      </form>
+    </main>
+  </div>
+</div>
+</body>
+</html>
